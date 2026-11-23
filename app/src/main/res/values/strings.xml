@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">TripJournal</string>
+    <string name="places_title">Lieux</string>
+    <string name="add_place">Ajouter un lieu</string>
+    <string name="no_places">Aucun lieu pour l\'instant. Touchez + pour en ajouter un.</string>
+    <string name="place_name">Nom du lieu</string>
+    <string name="place_city">Ville</string>
+    <string name="place_country">Pays</string>
+    <string name="place_description">Description (facultatif)</string>
+    <string name="save">Enregistrer</string>
+    <string name="delete">Supprimer</string>
+    <string name="place_invalid">Le nom, la ville et le pays sont obligatoires.</string>
+    <string name="place_in_use">Impossible : ce lieu est utilisé par %1$d visite(s).</string>
 </resources>

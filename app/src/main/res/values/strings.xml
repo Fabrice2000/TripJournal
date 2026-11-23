@@ -11,4 +11,5 @@
     <string name="delete">Supprimer</string>
     <string name="place_invalid">Le nom, la ville et le pays sont obligatoires.</string>
     <string name="place_in_use">Impossible : ce lieu est utilisé par %1$d visite(s).</string>
+    <string name="place_location">%1$s, %2$s</string>
 </resources>

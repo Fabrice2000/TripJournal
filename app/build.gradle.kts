@@ -47,4 +47,20 @@ dependencies {
     implementation("androidx.room:room-paging:2.8.4")
 
     ksp("androidx.room:room-compiler:2.8.4")
+
+    // RecyclerView
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
+
+    // Paging 3
+    implementation("androidx.paging:paging-runtime-ktx:3.3.6")
+
+    // Fragments
+    implementation("androidx.fragment:fragment-ktx:1.8.9")
+
+    // ViewModel et Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.4")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 }

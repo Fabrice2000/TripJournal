@@ -26,6 +26,11 @@ interface VisitDao {
     @Query("SELECT * FROM visits WHERE tripId = :tripId ORDER BY visitDate ASC, id ASC")
     fun observeForTrip(tripId: Long): Flow<List<VisitWithPlace>>
 
+    // Toutes les visites avec leur lieu : utilisé par l'écran Statistiques.
+    @Transaction
+    @Query("SELECT * FROM visits")
+    fun observeAllWithPlace(): Flow<List<VisitWithPlace>>
+
     @Query("SELECT COUNT(*) FROM visits")
     fun getVisitCount(): Flow<Int>
 

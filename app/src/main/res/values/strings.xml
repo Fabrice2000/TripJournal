@@ -75,13 +75,29 @@
     <string name="total_places">Lieux enregistrés</string>
     <string name="total_visits">Visites planifiées</string>
     <string name="avg_visits_per_trip">Moyenne de visites par voyage</string>
+    <string name="stats_empty">Aucun voyage pour l\'instant : les statistiques apparaîtront dès votre premier voyage.</string>
+    <string name="stats_travel_time">Temps de voyage</string>
+    <string name="stats_total_days">%1$d jours de voyage au total</string>
+    <string name="stats_longest_trip">Plus long voyage : %1$s (%2$d jours)</string>
+    <string name="stats_status">Statut des voyages</string>
+    <string name="stats_status_values">En cours : %1$d\nÀ venir : %2$d\nTerminés : %3$d\nFavoris : %4$d</string>
+    <string name="stats_top_countries">Pays les plus visités</string>
+    <string name="stats_ranked_item">%1$d. %2$s (%3$d voyage(s))</string>
+    <string name="stats_most_visited_place">Lieu le plus visité</string>
+    <string name="stats_place_visits">%1$s (%2$d visite(s))</string>
+    <string name="stats_no_visits">Aucune visite enregistrée pour l\'instant.</string>
 
     <!-- Hub Principal / Navigation (Fabrice) -->
     <string name="dashboard_welcome">Carnet de Voyage</string>
     <string name="dashboard_subtitle">Gérez vos voyages, vos lieux et vos itinéraires</string>
-    <string name="nav_catalog">Catalogue Paging 3</string>
+    <string name="nav_catalog">Catalogue des voyages</string>
     <string name="nav_trips">Mes Voyages</string>
     <string name="nav_places">Mes Lieux</string>
     <string name="nav_stats">Statistiques</string>
     <string name="nav_settings">Réglages</string>
+    <string name="nav_catalog_desc">Rechercher, trier et parcourir tous les voyages</string>
+    <string name="nav_trips_desc">Créer, modifier et organiser vos itinéraires</string>
+    <string name="nav_places_desc">Gérer les lieux à associer à vos visites</string>
+    <string name="nav_stats_desc">Jours de voyage, pays, lieux les plus visités</string>
+    <string name="nav_settings_desc">Thème, tri par défaut et gestion des données</string>
 </resources>

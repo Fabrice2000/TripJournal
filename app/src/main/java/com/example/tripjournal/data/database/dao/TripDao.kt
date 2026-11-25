@@ -33,6 +33,10 @@ interface TripDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertTrip(trip: Trip): Long
 
+    // Insertion groupée (une seule transaction) : utilisée par l'import JSON initial.
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun insertTrips(trips: List<Trip>): List<Long>
+
     @Update
     suspend fun updateTrip(trip: Trip)
 

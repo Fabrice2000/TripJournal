@@ -40,7 +40,12 @@ class TripDetailActivity : AppCompatActivity() {
         val warningText = findViewById<TextView>(R.id.tripWarningText)
         val emptyText = findViewById<TextView>(R.id.itineraryEmptyText)
 
-        val adapter = ItineraryAdapter { /* étape B : ouvrir le formulaire de visite */ }
+        val adapter = ItineraryAdapter { item ->
+            startActivity(VisitFormActivity.newIntent(this, tripId, item.visit.id))
+        }
+        findViewById<View>(R.id.addVisitButton).setOnClickListener {
+            if (tripId != 0L) startActivity(VisitFormActivity.newIntent(this, tripId, 0L))
+        }
         findViewById<RecyclerView>(R.id.itineraryList).apply {
             layoutManager = LinearLayoutManager(this@TripDetailActivity)
             this.adapter = adapter

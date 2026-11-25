@@ -18,4 +18,11 @@
     <string name="no_visits">Aucune visite prévue. Touchez + pour en ajouter une.</string>
     <string name="itinerary_day">Jour %1$d · %2$s</string>
     <string name="visits_outside_trip">Attention : %1$d visite(s) hors des dates du voyage.</string>
+    <string name="choose_place">Choisir un lieu</string>
+    <string name="choose_date">Choisir une date</string>
+    <string name="visit_notes">Notes (facultatif)</string>
+    <string name="visit_place_value">%1$s (%2$s)</string>
+    <string name="visit_missing">Choisissez un lieu et une date.</string>
+    <string name="visit_outside_trip">La date doit être comprise dans les dates du voyage.</string>
+    <string name="no_places_for_visit">Ajoutez d\'abord un lieu.</string>
 </resources>

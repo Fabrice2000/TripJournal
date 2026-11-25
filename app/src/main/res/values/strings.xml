@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">TripJournal</string>
+    <string name="places_title">Lieux</string>
+    <string name="add_place">Ajouter un lieu</string>
+    <string name="no_places">Aucun lieu pour l\'instant. Touchez + pour en ajouter un.</string>
+    <string name="place_name">Nom du lieu</string>
+    <string name="place_city">Ville</string>
+    <string name="place_country">Pays</string>
+    <string name="place_description">Description (facultatif)</string>
+    <string name="save">Enregistrer</string>
+    <string name="delete">Supprimer</string>
+    <string name="place_invalid">Le nom, la ville et le pays sont obligatoires.</string>
+    <string name="place_in_use">Impossible : ce lieu est utilisé par %1$d visite(s).</string>
+    <string name="place_location">%1$s, %2$s</string>
+    <string name="trip_info">%1$s · du %2$s au %3$s</string>
+    <string name="manage_places">Gérer les lieux</string>
+    <string name="add_visit">Ajouter une visite</string>
+    <string name="no_visits">Aucune visite prévue. Touchez + pour en ajouter une.</string>
+    <string name="itinerary_day">Jour %1$d · %2$s</string>
+    <string name="visits_outside_trip">Attention : %1$d visite(s) hors des dates du voyage.</string>
+    <string name="choose_place">Choisir un lieu</string>
+    <string name="choose_date">Choisir une date</string>
+    <string name="visit_notes">Notes (facultatif)</string>
+    <string name="visit_place_value">%1$s (%2$s)</string>
+    <string name="visit_missing">Choisissez un lieu et une date.</string>
+    <string name="visit_outside_trip">La date doit être comprise dans les dates du voyage.</string>
+    <string name="no_places_for_visit">Ajoutez d\'abord un lieu.</string>
 </resources>

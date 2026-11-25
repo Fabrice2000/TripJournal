@@ -25,6 +25,7 @@
         <!-- Écrans des lieux (Yazid) -->
         <activity android:name=".ui.places.PlaceListActivity" android:exported="true" />
         <activity android:name=".ui.places.PlaceFormActivity" android:exported="false" />
+        <activity android:name=".ui.trips.TripDetailActivity" android:exported="true" />
 
     </application>
 

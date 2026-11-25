@@ -12,4 +12,10 @@
     <string name="place_invalid">Le nom, la ville et le pays sont obligatoires.</string>
     <string name="place_in_use">Impossible : ce lieu est utilisé par %1$d visite(s).</string>
     <string name="place_location">%1$s, %2$s</string>
+    <string name="trip_info">%1$s · du %2$s au %3$s</string>
+    <string name="manage_places">Gérer les lieux</string>
+    <string name="add_visit">Ajouter une visite</string>
+    <string name="no_visits">Aucune visite prévue. Touchez + pour en ajouter une.</string>
+    <string name="itinerary_day">Jour %1$d · %2$s</string>
+    <string name="visits_outside_trip">Attention : %1$d visite(s) hors des dates du voyage.</string>
 </resources>

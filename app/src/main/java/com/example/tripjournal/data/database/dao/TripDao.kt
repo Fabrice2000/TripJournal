@@ -1,5 +1,6 @@
 package com.example.tripjournal.data.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -14,8 +15,20 @@ interface TripDao {
     @Query("SELECT * FROM trips ORDER BY startDate DESC, id DESC")
     fun getAllTrips(): Flow<List<Trip>>
 
+    @Query("SELECT * FROM trips WHERE name LIKE '%' || :query || '%' OR destination LIKE '%' || :query || '%' ORDER BY startDate DESC, id DESC")
+    fun getTripsPaged(query: String): PagingSource<Int, Trip>
+
+    @Query("SELECT * FROM trips WHERE name LIKE '%' || :query || '%' OR destination LIKE '%' || :query || '%' ORDER BY name ASC, id DESC")
+    fun getTripsPagedByName(query: String): PagingSource<Int, Trip>
+
+    @Query("SELECT * FROM trips WHERE name LIKE '%' || :query || '%' OR destination LIKE '%' || :query || '%' ORDER BY destination ASC, id DESC")
+    fun getTripsPagedByDestination(query: String): PagingSource<Int, Trip>
+
     @Query("SELECT * FROM trips WHERE id = :tripId")
     fun getTripById(tripId: Long): Flow<Trip?>
+
+    @Query("SELECT COUNT(*) FROM trips")
+    fun getTripCount(): Flow<Int>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertTrip(trip: Trip): Long

@@ -26,6 +26,9 @@ interface VisitDao {
     @Query("SELECT * FROM visits WHERE tripId = :tripId ORDER BY visitDate ASC, id ASC")
     fun observeForTrip(tripId: Long): Flow<List<VisitWithPlace>>
 
+    @Query("SELECT COUNT(*) FROM visits")
+    fun getVisitCount(): Flow<Int>
+
     @Query("SELECT * FROM visits WHERE id = :id LIMIT 1")
     suspend fun getById(id: Long): Visit?
 

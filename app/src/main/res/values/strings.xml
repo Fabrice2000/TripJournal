@@ -27,4 +27,13 @@
     <string name="no_places_for_visit">Ajoutez d\'abord un lieu.</string>
     <string name="no_trips">Aucun voyage pour l\'instant. Touchez + pour en créer un.</string>
     <string name="add_trip">Ajouter un voyage</string>
+    <string name="trip_name">Nom du voyage</string>
+    <string name="trip_destination">Destination</string>
+    <string name="trip_description">Description (facultatif)</string>
+    <string name="choose_trip_dates">Choisir les dates</string>
+    <string name="trip_dates_value">du %1$s au %2$s</string>
+    <string name="trip_invalid">Le nom, la destination et les dates sont obligatoires.</string>
+    <string name="trip_duplicate">Un voyage avec ce nom et cette date de départ existe déjà.</string>
+    <string name="edit_trip">Modifier</string>
+    <string name="delete_trip_confirm">Supprimer ce voyage et toutes ses visites ?</string>
 </resources>

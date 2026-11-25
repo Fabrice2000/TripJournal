@@ -37,7 +37,9 @@ class TripListActivity : AppCompatActivity() {
             this.adapter = adapter
         }
 
-        // Étape 3 : le bouton + ouvrira le formulaire de voyage.
+        findViewById<View>(R.id.addTripButton).setOnClickListener {
+            startActivity(TripFormActivity.newIntent(this, 0L))
+        }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

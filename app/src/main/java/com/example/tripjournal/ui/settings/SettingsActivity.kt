@@ -15,6 +15,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.switchmaterial.SwitchMaterial
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
 class SettingsActivity : AppCompatActivity() {
@@ -89,7 +90,7 @@ class SettingsActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    viewModel.themeMode.collect { mode ->
+                    viewModel.themeMode.filterNotNull().collect { mode ->
                         when (mode) {
                             SettingsManager.THEME_LIGHT -> themeRadioGroup.check(R.id.themeLight)
                             SettingsManager.THEME_DARK -> themeRadioGroup.check(R.id.themeDark)
@@ -98,7 +99,7 @@ class SettingsActivity : AppCompatActivity() {
                     }
                 }
                 launch {
-                    viewModel.defaultSort.collect { sort ->
+                    viewModel.defaultSort.filterNotNull().collect { sort ->
                         when (sort) {
                             SettingsManager.SORT_DATE_ASC -> sortRadioGroup.check(R.id.sortDateAsc)
                             SettingsManager.SORT_NAME_ASC -> sortRadioGroup.check(R.id.sortNameAsc)
@@ -108,7 +109,7 @@ class SettingsActivity : AppCompatActivity() {
                     }
                 }
                 launch {
-                    viewModel.distanceUnit.collect { unit ->
+                    viewModel.distanceUnit.filterNotNull().collect { unit ->
                         if (unit == SettingsManager.UNIT_MILES) {
                             unitRadioGroup.check(R.id.unitMiles)
                         } else {
@@ -117,7 +118,7 @@ class SettingsActivity : AppCompatActivity() {
                     }
                 }
                 launch {
-                    viewModel.confirmDelete.collect { confirm ->
+                    viewModel.confirmDelete.filterNotNull().collect { confirm ->
                         confirmDeleteSwitch.isChecked = confirm
                     }
                 }

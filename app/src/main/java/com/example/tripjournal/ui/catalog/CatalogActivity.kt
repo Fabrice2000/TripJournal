@@ -24,6 +24,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.ChipGroup
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
 class CatalogActivity : AppCompatActivity() {
@@ -95,6 +96,17 @@ class CatalogActivity : AppCompatActivity() {
                         errorState.visibility = if (isRefreshError) View.VISIBLE else View.GONE
                         emptyState.visibility = if (isListEmpty && !isRefreshError) View.VISIBLE else View.GONE
                         recyclerView.visibility = if (!isRefreshLoading && !isRefreshError && !isListEmpty) View.VISIBLE else View.GONE
+                    }
+                }
+                launch {
+                    // La chip cochée reflète le tri actif (préférence DataStore ou choix local)
+                    viewModel.sortOrder.filterNotNull().collect { sort ->
+                        val chipId = when (sort) {
+                            SettingsManager.SORT_NAME_ASC -> R.id.chipSortName
+                            SettingsManager.SORT_DESTINATION_ASC -> R.id.chipSortDestination
+                            else -> R.id.chipSortDate
+                        }
+                        if (chipGroup.checkedChipId != chipId) chipGroup.check(chipId)
                     }
                 }
                 launch {

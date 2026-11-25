@@ -47,6 +47,7 @@ dependencies {
     implementation("androidx.room:room-paging:2.8.4")
     implementation("androidx.paging:paging-runtime:3.3.6")
     implementation("androidx.paging:paging-runtime-ktx:3.3.6")
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
 
     ksp("androidx.room:room-compiler:2.8.4")
 }

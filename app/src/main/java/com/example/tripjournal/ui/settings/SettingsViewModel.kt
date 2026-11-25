@@ -5,37 +5,44 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.tripjournal.data.settings.SettingsManager
 import com.example.tripjournal.domain.ImportResult
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class SettingsViewModel(
     private val settingsManager: SettingsManager
 ) : ViewModel() {
 
-    val themeMode: StateFlow<Int> = settingsManager.themeMode
-    val defaultSort: StateFlow<String> = settingsManager.defaultSort
-    val confirmDelete: StateFlow<Boolean> = settingsManager.confirmDelete
-    val distanceUnit: StateFlow<String> = settingsManager.distanceUnit
+    /**
+     * Les valeurs sont `null` tant que DataStore n'a pas été lu : l'écran attend la
+     * vraie valeur au lieu d'afficher (et d'enregistrer) une valeur par défaut.
+     */
+    val themeMode: StateFlow<Int?> = settingsManager.themeMode.asState()
+    val defaultSort: StateFlow<String?> = settingsManager.defaultSort.asState()
+    val confirmDelete: StateFlow<Boolean?> = settingsManager.confirmDelete.asState()
+    val distanceUnit: StateFlow<String?> = settingsManager.distanceUnit.asState()
 
     private val _resetResult = MutableSharedFlow<ImportResult?>()
     val resetResult: SharedFlow<ImportResult?> = _resetResult
 
     fun setThemeMode(mode: Int) {
-        settingsManager.setThemeMode(mode)
+        viewModelScope.launch { settingsManager.setThemeMode(mode) }
     }
 
     fun setDefaultSort(sortOrder: String) {
-        settingsManager.setDefaultSort(sortOrder)
+        viewModelScope.launch { settingsManager.setDefaultSort(sortOrder) }
     }
 
     fun setConfirmDelete(enabled: Boolean) {
-        settingsManager.setConfirmDelete(enabled)
+        viewModelScope.launch { settingsManager.setConfirmDelete(enabled) }
     }
 
     fun setDistanceUnit(unit: String) {
-        settingsManager.setDistanceUnit(unit)
+        viewModelScope.launch { settingsManager.setDistanceUnit(unit) }
     }
 
     fun resetData() {
@@ -44,6 +51,9 @@ class SettingsViewModel(
             _resetResult.emit(result)
         }
     }
+
+    private fun <T> Flow<T>.asState(): StateFlow<T?> =
+        stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
     class Factory(private val settingsManager: SettingsManager) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")

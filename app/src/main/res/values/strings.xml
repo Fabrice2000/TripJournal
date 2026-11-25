@@ -25,4 +25,6 @@
     <string name="visit_missing">Choisissez un lieu et une date.</string>
     <string name="visit_outside_trip">La date doit être comprise dans les dates du voyage.</string>
     <string name="no_places_for_visit">Ajoutez d\'abord un lieu.</string>
+    <string name="no_trips">Aucun voyage pour l\'instant. Touchez + pour en créer un.</string>
+    <string name="add_trip">Ajouter un voyage</string>
 </resources>

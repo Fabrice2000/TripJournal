@@ -27,6 +27,7 @@
         <activity android:name=".ui.places.PlaceFormActivity" android:exported="false" />
         <activity android:name=".ui.trips.TripDetailActivity" android:exported="true" />
         <activity android:name=".ui.trips.VisitFormActivity" android:exported="false" />
+        <activity android:name=".ui.trips.TripListActivity" android:exported="true" />
 
     </application>
 

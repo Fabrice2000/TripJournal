@@ -18,7 +18,7 @@ object TripRules {
     /** Doublon = un autre voyage avec le même nom (sans tenir compte des majuscules) et le même jour de départ. */
     fun isDuplicate(trip: Trip, existing: List<Trip>): Boolean =
         existing.any {
-            it.id != trip.id &&
+            (trip.id == 0L || it.id != trip.id) &&
                     it.name.trim().equals(trip.name.trim(), ignoreCase = true) &&
                     day(it.startDate) == day(trip.startDate)
         }

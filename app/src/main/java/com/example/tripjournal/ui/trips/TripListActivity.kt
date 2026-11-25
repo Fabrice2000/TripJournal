@@ -15,6 +15,8 @@ import com.example.tripjournal.R
 import com.example.tripjournal.data.database.TripJournalDatabase
 import com.example.tripjournal.data.repository.TripRepository
 import com.example.tripjournal.ui.places.applySystemBarPadding
+import com.example.tripjournal.data.importer.TripJsonImporter
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class TripListActivity : AppCompatActivity() {
@@ -39,6 +41,20 @@ class TripListActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.addTripButton).setOnClickListener {
             startActivity(TripFormActivity.newIntent(this, 0L))
+        }
+
+        if (savedInstanceState == null) {
+            lifecycleScope.launch {
+                val result = TripJsonImporter(
+                    applicationContext,
+                    TripJournalDatabase.get(this@TripListActivity).tripDao()
+                ).importIfNeeded() ?: return@launch
+                Snackbar.make(
+                    findViewById(android.R.id.content),
+                    getString(R.string.trips_imported, result.toInsert.size, result.invalid, result.duplicates),
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
         }
 
         lifecycleScope.launch {

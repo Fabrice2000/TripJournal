@@ -55,14 +55,20 @@ class TripDetailActivity : AppCompatActivity() {
             startActivity(Intent(this, PlaceListActivity::class.java))
         }
 
+        findViewById<Button>(R.id.editTripButton).setOnClickListener {
+            startActivity(TripFormActivity.newIntent(this, tripId))
+        }
+        var loaded = false
+
         lifecycleScope.launch {
             tripId = intent.getLongExtra(EXTRA_TRIP_ID, 0L)
-            if (tripId == 0L) {
-                tripId = DemoData.firstOrCreateTrip(TripJournalDatabase.get(this@TripDetailActivity))
-            }
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { state ->
-                    if (state == null) return@collect
+                    if (state == null) {
+                        if (loaded) finish()
+                        return@collect
+                    }
+                    loaded = true
                     nameText.text = state.trip.name
                     infoText.text = getString(
                         R.string.trip_info,

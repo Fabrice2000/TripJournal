@@ -183,7 +183,7 @@ erDiagram
 
 ## Installation et lancement
 
-**Prérequis** : Android Studio récent (AGP 9.5), JDK 17+, un émulateur ou appareil Android 8.0+ (API 26).
+**Prérequis** : Android Studio récent (AGP 9.5), **JDK 25** (à choisir comme « Gradle JDK » dans les réglages d'Android Studio), un émulateur ou appareil Android 8.0+ (API 26).
 
 1. Cloner le dépôt puis l'ouvrir dans Android Studio (*File → Open*).
 2. Laisser la synchronisation Gradle se terminer.

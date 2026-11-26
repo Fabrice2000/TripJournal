@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -39,6 +40,7 @@ class CatalogActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()  // icônes de la barre d'état adaptées au thème clair / sombre
         setContentView(R.layout.activity_catalog)
         findViewById<android.view.ViewGroup>(android.R.id.content).getChildAt(0).applySystemBarPadding()
 

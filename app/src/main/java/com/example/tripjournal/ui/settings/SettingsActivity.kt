@@ -2,6 +2,7 @@ package com.example.tripjournal.ui.settings
 
 import android.os.Bundle
 import android.widget.RadioGroup
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,7 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()  // icônes de la barre d'état adaptées au thème clair / sombre
         setContentView(R.layout.activity_settings)
         findViewById<android.view.ViewGroup>(android.R.id.content).getChildAt(0).applySystemBarPadding()
 

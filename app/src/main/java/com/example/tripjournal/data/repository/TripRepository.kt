@@ -29,6 +29,7 @@ class TripRepository(private val tripDao: TripDao) {
             config = PagingConfig(pageSize = 10, enablePlaceholders = false)
         ) {
             when (sortOrder) {
+                SettingsManager.SORT_DATE_ASC -> tripDao.getTripsPagedByDateAsc(query)
                 SettingsManager.SORT_NAME_ASC -> tripDao.getTripsPagedByName(query)
                 SettingsManager.SORT_DESTINATION_ASC -> tripDao.getTripsPagedByDestination(query)
                 else -> tripDao.getTripsPaged(query)

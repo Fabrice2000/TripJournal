@@ -36,6 +36,8 @@
     <string name="trip_duplicate">Un voyage avec ce nom et cette date de départ existe déjà.</string>
     <string name="edit_trip">Modifier</string>
     <string name="delete_trip_confirm">Supprimer ce voyage et toutes ses visites ?</string>
+    <string name="delete_place_confirm">Supprimer ce lieu ?</string>
+    <string name="delete_visit_confirm">Supprimer cette visite de l\'itinéraire ?</string>
     <string name="trips_imported">%1$d voyages importés (%2$d invalides, %3$d doublons ignorés)</string>
 
     <!-- Paramètres et Réglages (Fabrice) -->

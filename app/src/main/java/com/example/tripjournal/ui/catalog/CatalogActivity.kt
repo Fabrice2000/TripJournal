@@ -74,6 +74,7 @@ class CatalogActivity : AppCompatActivity() {
         // Ecouteur de tri
         chipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
             val sort = when {
+                checkedIds.contains(R.id.chipSortDateAsc) -> SettingsManager.SORT_DATE_ASC
                 checkedIds.contains(R.id.chipSortName) -> SettingsManager.SORT_NAME_ASC
                 checkedIds.contains(R.id.chipSortDestination) -> SettingsManager.SORT_DESTINATION_ASC
                 else -> SettingsManager.SORT_DATE_DESC
@@ -102,6 +103,7 @@ class CatalogActivity : AppCompatActivity() {
                     // La chip cochée reflète le tri actif (préférence DataStore ou choix local)
                     viewModel.sortOrder.filterNotNull().collect { sort ->
                         val chipId = when (sort) {
+                            SettingsManager.SORT_DATE_ASC -> R.id.chipSortDateAsc
                             SettingsManager.SORT_NAME_ASC -> R.id.chipSortName
                             SettingsManager.SORT_DESTINATION_ASC -> R.id.chipSortDestination
                             else -> R.id.chipSortDate

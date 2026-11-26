@@ -52,6 +52,13 @@
                     android:text="@string/sort_date_desc" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSortDateAsc"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sort_date_asc" />
+
+                <com.google.android.material.chip.Chip
                     android:id="@+id/chipSortName"
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"

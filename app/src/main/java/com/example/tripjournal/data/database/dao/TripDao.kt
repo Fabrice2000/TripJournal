@@ -18,6 +18,9 @@ interface TripDao {
     @Query("SELECT * FROM trips WHERE name LIKE '%' || :query || '%' OR destination LIKE '%' || :query || '%' ORDER BY startDate DESC, id DESC")
     fun getTripsPaged(query: String): PagingSource<Int, Trip>
 
+    @Query("SELECT * FROM trips WHERE name LIKE '%' || :query || '%' OR destination LIKE '%' || :query || '%' ORDER BY startDate ASC, id ASC")
+    fun getTripsPagedByDateAsc(query: String): PagingSource<Int, Trip>
+
     @Query("SELECT * FROM trips WHERE name LIKE '%' || :query || '%' OR destination LIKE '%' || :query || '%' ORDER BY name ASC, id DESC")
     fun getTripsPagedByName(query: String): PagingSource<Int, Trip>
 
